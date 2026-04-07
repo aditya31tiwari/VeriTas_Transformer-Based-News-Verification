@@ -118,7 +118,7 @@ That’s something I’m actively working on fixing.
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 * **Model:** RoBERTa (fine-tuned)
 * **Backend:** FastAPI
@@ -127,9 +127,3 @@ That’s something I’m actively working on fixing.
 
 ---
 
-
----
-
-## 📄 License
-
-For academic / learning purposes.
