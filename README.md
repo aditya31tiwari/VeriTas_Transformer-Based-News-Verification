@@ -1,4 +1,6 @@
-# 📰 VeriTas: Transformer Based Fake News Verification
+<img width="590" height="274" alt="Screenshot 2026-03-08 160819" src="https://github.com/user-attachments/assets/68529288-3d21-4eee-b621-f1156b26d548" />
+
+# VeriTas: Transformer Based Fake News Verification
 
 VeriTas is a transformer-based fake news detection system that analyzes news content and classifies it as **real or fake**.
 
@@ -6,10 +8,10 @@ This project is not built from scratch — it’s a **continuation of my previou
 
 ---
 
-## 🔗 Previous Version
+##  Previous Version
 
 This builds on my earlier project:
-👉 https://github.com/aditya31tiwari/FAKE_NEWS_DETECTION
+-> https://github.com/aditya31tiwari/FAKE_NEWS_DETECTION
 
 Back then, the focus was:
 
@@ -21,7 +23,7 @@ It worked, but it wasn’t enough for real-world use.
 
 ---
 
-## 🚀 What’s Different Now
+##  What’s Different Now
 
 This version is a **serious upgrade**.
 
@@ -36,7 +38,7 @@ This version is a **serious upgrade**.
 
 ---
 
-## 🧠 Approach (Simple Version)
+##  Approach (Simple Version)
 
 Instead of manually engineering features, I used a pretrained transformer and fine-tuned it for:
 
@@ -49,7 +51,7 @@ The idea is simple:
 
 ---
 
-## 🗂️ Dataset
+##  Dataset
 
 Combined multiple datasets:
 
@@ -66,7 +68,7 @@ Final dataset:
 
 ---
 
-## ⚙️ How It Works
+##  How It Works
 
 1. User enters news text
 2. Frontend sends request
@@ -81,7 +83,7 @@ Final dataset:
 
 ---
 
-## ✨ Features
+##  Features
 
 * Real-time fake news detection
 * End-to-end pipeline (UI → API → Model)
@@ -90,7 +92,7 @@ Final dataset:
 
 ---
 
-## ⚠️ Current State
+##  Current State
 
 Right now, the system runs **locally** and is still being actively improved.
 
@@ -103,7 +105,7 @@ That’s something I’m actively working on fixing.
 
 ---
 
-## 🔄 What’s Next
+##  What’s Next
 
 * Train for more epochs (planned in the coming weeks)
 * Improve performance on real-world data
@@ -125,23 +127,6 @@ That’s something I’m actively working on fixing.
 
 ---
 
-## 📌 Final Thought
-
-This project is basically me going from:
-
-> “Let’s classify fake news”
-
-to
-
-> “Let’s actually build something that could work in the real world”
-
-Still not perfect — but getting there.
-
----
-
-## 🤝 Contributions
-
-Open to suggestions, improvements, or ideas. Feel free to fork and build on it.
 
 ---
 
