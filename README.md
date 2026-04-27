@@ -1,6 +1,5 @@
 <img width="590" height="274" alt="Screenshot 2026-03-08 160819" src="https://github.com/user-attachments/assets/68529288-3d21-4eee-b621-f1156b26d548" />
 
-# VeriTas: Transformer Based Fake News Verification
 
 # VeriTas: Transformer-Based Fake News Verification
 
