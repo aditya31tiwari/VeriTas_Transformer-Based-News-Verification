@@ -20,7 +20,9 @@ export default function LandingPage() {
 
     try {
       const endpoint = authMode === "login" ? "/login" : "/register";
-      const response = await fetch("https://aditya31tiwari-veritas-backend.hf.space/register${endpoint}", {
+      
+      // Use BACKTICKS ( ` ) and remove the extra "/register"
+      const response = await fetch(`https://aditya31tiwari-veritas-backend.hf.space${endpoint}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
