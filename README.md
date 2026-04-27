@@ -83,14 +83,3 @@ The system is fully deployed and operational. However, high performance on a cur
 * **Frontend:** Next.js, React, Tailwind CSS
 * **Database:** Neon (Serverless PostgreSQL)
 * **Hosting:** Vercel (UI), Hugging Face Spaces (API/Model)
-
-Tech Stack
-Model: RoBERTa (Fine-tuned via Hugging Face Transformers)
-
-Backend: Python, FastAPI, SQLAlchemy
-
-Frontend: Next.js, React, Tailwind CSS
-
-Database: Neon (Serverless PostgreSQL)
-
-Hosting: Vercel (UI), Hugging Face Spaces (API/Model)
