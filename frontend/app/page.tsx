@@ -20,7 +20,7 @@ export default function LandingPage() {
 
     try {
       const endpoint = authMode === "login" ? "/login" : "/register";
-      const response = await fetch(`http://127.0.0.1:8001${endpoint}`, {
+      const response = await fetch("https://aditya31tiwari-veritas-backend.hf.space/register${endpoint}", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
