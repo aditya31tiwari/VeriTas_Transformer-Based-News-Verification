@@ -2,128 +2,103 @@
 
 # VeriTas: Transformer Based Fake News Verification
 
-VeriTas is a transformer-based fake news detection system that analyzes news content and classifies it as **real or fake**.
+VeriTas is a full-stack, multimodal fake news detection system that analyzes text, URLs, and images to classify news content as real or fake.
 
-This project is not built from scratch — it’s a **continuation of my previous work**, where I started with traditional ML models and then pushed it further toward something more realistic and scalable.
+This project is a complete architectural and algorithmic overhaul of my previous baseline work, pushing the system from a simple local script to a realistic, scalable, cloud-hosted application.
 
----
-
-##  Previous Version
-
-This builds on my earlier project:
--> https://github.com/aditya31tiwari/FAKE_NEWS_DETECTION
-
+Previous Version
+This builds on my earlier project: FAKE_NEWS_DETECTION
 Back then, the focus was:
 
-* TF-IDF + Logistic Regression / SVM
-* Simpler pipelines
-* Limited ability to understand context
+TF-IDF + Logistic Regression / SVM
 
-It worked, but it wasn’t enough for real-world use.
+Simpler, monolithic pipelines
 
----
+Limited ability to understand complex linguistic context
 
-##  What’s Different Now
+It worked as a proof of concept, but it wasn’t robust enough for real-world, nuanced journalism.
 
-This version is a **serious upgrade**.
+What’s Different Now
+This version is a serious upgrade. I shifted entirely from traditional ML to a fine-tuned RoBERTa transformer model and decoupled the architecture into a modern web stack.
 
-* Switched from traditional ML → **RoBERTa (transformer model)**
-* Much better at understanding context in news articles
-* Trained on a **larger and more diverse dataset (~100k+ articles)**
-* Built a **full pipeline** instead of just a model:
+Context-Aware: RoBERTa utilizes self-attention to understand the surrounding context of words in articles, drastically outperforming frequency-based models.
 
-  * FastAPI backend
-  * Next.js frontend
-* Supports **real-time predictions with confidence scores**
+Full-Stack Pipeline: Replaced the local scripts with a robust Next.js frontend (styled with Tailwind CSS) and a FastAPI backend.
 
----
+Multimodal Inputs: It no longer just takes raw text. The system can now scrape live URLs and perform OCR on images to analyze screenshots of news.
 
-##  Approach (Simple Version)
+Live Deployment & Architecture
+VeriTas is deployed live and utilizes a decoupled, serverless architecture:
 
-Instead of manually engineering features, I used a pretrained transformer and fine-tuned it for:
+Frontend (Vercel): The Next.js UI is hosted on Vercel.
 
-* Real News
-* Fake News
+Database (Neon PostgreSQL): A serverless relational database handles secure user authentication (bcrypt hashing) and maintains a persistent history of user analyses.
 
-The idea is simple:
+Backend & Model (Hugging Face Spaces): The core inference engine lives in the Hugging Face Space.
 
-> Let the model learn context instead of trying to handcraft it.
+Note for Reviewers: The backend API, extraction logic, and the fine-tuned RoBERTa model are hosted in the backend-logic folder. This FastAPI server acts as the bridge between the Vercel frontend, the Neon database, and the transformer model.
 
----
+Core Features
+Real-time Classification: Provides binary FAKE/REAL predictions alongside a percentage-based confidence score.
 
-##  Dataset
+Multimodal Analysis: Analyze raw text, extract article body text directly from live URLs, or upload images/screenshots for OCR text extraction.
 
-Combined multiple datasets:
+User Accounts: Secure registration and login functionality.
 
-* ISOT Dataset
-* Misinformation Dataset
-* FakeNewsNet (subset)
+Analysis History: Users have a personalized, persistent dashboard to review or delete their previous verification logs.
 
-Final dataset:
+Minimalist UI: Clean, distraction-free interface designed for quick verification.
 
-* ~108k articles
-* Balanced (real vs fake)
-* Covers multiple domains
-* Data range: ~2016–2019
+Dataset & Approach
+Instead of manually engineering features, I used a pretrained RoBERTa transformer and fine-tuned it to learn contextual deception markers.
 
----
+Combined multiple datasets for diverse training:
 
-##  How It Works
+ISOT Dataset
 
-1. User enters news text
-2. Frontend sends request
-3. Backend processes it:
+Misinformation Dataset
 
-   * Tokenization
-   * Model inference
-4. Output:
+FakeNewsNet (subset)
 
-   * Prediction (Real / Fake)
-   * Confidence score
+Final dataset specs:
 
----
+~108k articles
 
-##  Features
+Balanced distribution (real vs fake)
 
-* Real-time fake news detection
-* End-to-end pipeline (UI → API → Model)
-* Confidence-based output
-* Clean and simple interface
+Covers multiple domains (politics, global news, entertainment)
 
----
+Data range: ~2016–2019
 
-##  Current State
+How It Works
+User logs into the frontend and submits content (Text, URL, or Image).
 
-Right now, the system runs **locally** and is still being actively improved.
+Frontend sends an API request to the Hugging Face backend.
 
-Also, something important I noticed:
+Backend processes the input (stripping HTML from URLs or running OCR on images) to isolate the core text.
 
-* High performance on dataset ≠ perfect real-world behavior
-* The model can struggle with **neutral or well-balanced articles**
+The text is tokenized and passed through the fine-tuned RoBERTa model for inference.
 
-That’s something I’m actively working on fixing.
+The backend logs the result to the Neon database and returns the Verdict and Confidence Score to the UI.
 
----
+Current State & Next Steps
+The system is fully deployed and operational. However, high performance on a curated dataset does not always equal perfect real-world behavior. The model can occasionally struggle with highly neutral or exceptionally well-balanced opinion pieces.
 
-##  What’s Next
+Next Steps:
 
-* Train for more epochs (planned in the coming weeks)
-* Improve performance on real-world data
-* Add:
+Train for more epochs to refine edge-case accuracy.
 
-  * URL → text extraction
-  * Image → text (OCR)
-* Deploy the system
-* Add authentication + database support
+Expand the dataset to include post-2020 news events to update the model's worldly context.
 
----
+Improve URL extraction logic to bypass strict anti-scraping paywalls.
 
-##  Tech Stack
+Tech Stack
+Model: RoBERTa (Fine-tuned via Hugging Face Transformers)
 
-* **Model:** RoBERTa (fine-tuned)
-* **Backend:** FastAPI
-* **Frontend:** Next.js
-* **Languages:** Python, JavaScript
+Backend: Python, FastAPI, SQLAlchemy
 
----
+Frontend: Next.js, React, Tailwind CSS
 
+Database: Neon (Serverless PostgreSQL)
+
+Hosting: Vercel (UI), Hugging Face Spaces (API/Model)
