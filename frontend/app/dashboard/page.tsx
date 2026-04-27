@@ -265,7 +265,7 @@ export default function DashboardPage() {
         if (!text) return;
         displayText = text;
 
-        const response = await fetch("${API_BASE_URL}/analyze-text", {
+        const response = await fetch(`${API_BASE_URL}/analyze-text`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ text, user_id: userId }),
@@ -281,7 +281,7 @@ export default function DashboardPage() {
         if (!url) return;
         displayText = url;
 
-        const response = await fetch("${API_BASE_URL}/analyze-url", {
+        const response = await fetch(`${API_BASE_URL}/analyze-url`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ url, user_id: userId }),
@@ -300,7 +300,7 @@ export default function DashboardPage() {
         formData.append("file", imageFile);
         formData.append("user_id", String(userId));
 
-        const response = await fetch("${API_BASE_URL}/analyze-image", {
+        const response = await fetch(`${API_BASE_URL}/analyze-image`, {
           method: "POST",
           body: formData,
         });
