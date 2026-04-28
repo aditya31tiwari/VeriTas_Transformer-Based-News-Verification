@@ -71,7 +71,6 @@ Combined multiple datasets for diverse training:
 The system is fully deployed and operational. However, high performance on a curated dataset does not always equal perfect real-world behavior. The model can occasionally struggle with highly neutral or exceptionally well-balanced opinion pieces.
 
 ### Next Steps:
-* Train for more epochs to refine edge-case accuracy.
 * Expand the dataset to include post-2020 news events to update the model's worldly context.
 * Improve URL extraction logic to bypass strict anti-scraping paywalls.
 
